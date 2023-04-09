@@ -1,34 +1,24 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import AddOns from './components/AddOns'
+import SideBar from './components/SideBar'
+import PersonalInfo from './components/PersonalInfo'
+import Footer from './components/Footer'
+import Plan  from './components/Plan'
+import FinishUp from './components/FinishUp'
+import { useGlobalContext } from './context/context'
+import Congratulation from './components/Congratulation'
 function App() {
-  const [count, setCount] = useState(0)
-
+  const { count } = useGlobalContext();
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <div className="App md:p-4 relative md:grid md:bg-white md:gap-4 md:grid-cols-4 h-screen bg-neutral-magnolia">
+    <SideBar />
+    {count === 0 && <PersonalInfo />}
+    {count === 1 && <Plan />}
+    {count === 2 && <AddOns />}
+    {count === 3 && <FinishUp />}
+    {count === 4 && <Congratulation />}
+  </div>
   )
 }
 
