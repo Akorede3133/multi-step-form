@@ -78,7 +78,7 @@ const AppGlobal = ({ children }: childrenProp) => {
   const [count, setCount] = useState<number>(0);
   const [addons, setAddons] = useState<addonProps[]>([]);
   const [monthlyPlan, setMonthlyPlan] = useState<boolean>(true);
-  const [selectedPlan, setSelectedPlan] = useState<addonProps>({});
+  const [selectedPlan, setSelectedPlan] = useState({} as addonProps);
   return <context.Provider value={{count, 
   selectedPlan, 
   plans,
